@@ -43,16 +43,14 @@ api/v1/contact
 3. Реализовать company/all/list/ который 
 возвращает общий список моделей Individual и Company:
 ```
-{
-    [
-        {"company": "{company_obj_1}"}, 
-        {"company": "{company_obj_2}"}, 
-        {"company": "{company_objт_n}"}, 
-        {"individual": "{individual_obj_1}"}, 
-        {"individual": "{individual_obj_2}"}, 
-        {"individual": "{individual_obj_m}"}, 
-    ]
-}
+[
+    {"company": "{company_obj_1}"}, 
+    {"company": "{company_obj_2}"}, 
+    {"company": "{company_objт_n}"}, 
+    {"individual": "{individual_obj_1}"}, 
+    {"individual": "{individual_obj_2}"}, 
+    {"individual": "{individual_obj_m}"}, 
+]
 ```
 n, m - кол-во всех объектов класса company и individual
 
@@ -61,11 +59,11 @@ n, m - кол-во всех объектов класса company и individual
 Я хочу получать уведомления о день рождении, когда осталось несколько дней.
 
 Представим что у меня уже реализован планировщик задач, который каждый день запускат
-функцию `check_birthday(before_days_count: int)`, который находится по дериктории
-`/contact/tasks/birthday_check.py `. Также представим что реализована функция которая отправляет уведомления на почту:
+функцию `check_birthday(before_days_count: int)`, которая находится по дериктории
+`/contact/tasks/birthday_check.py `. Также представим что реализована функция которая отправляет уведомления на почту -
 `send_birthday_notification(individual: Individual)`, которая находится по дериктории `/contact/services/mail_tamplates.py`. 
 Эту функция реализовывать НЕ НУЖНО, просто используйте ее.
 
-Вам необходимо реализовать даннку фукнцию, которая проходится по всем объектам `individual` и проверяет:
+Вам необходимо реализовать фукнцию `check_birthday(before_days_count: int)`, которая проходится по всем объектам `individual` и проверяет:
 если до день рождения осталось `before_days_count` или меньше, то вызвать функцию:
      `send_birthday_notification(individual: Individual)`
